@@ -28,14 +28,12 @@ int main() {
 
 	split(input, a);
 
-	int size = 101;
+	int size = 1001;
 	int cnt = size*size;
-
-	int inc=1000/(size-1);
 
 	for(int i=0; i<size; i++) {
 		for(int j=0; j<size;j++) {
-			int p[2] = {a[0]+j*inc, a[1]+i*inc};
+			int p[2] = {a[0]+j, a[1]+i};
 			ll k[2] = {0, 0};
 			int t = 100;
 			while(t--) {
