@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 #define ll long long
 
@@ -9,15 +10,13 @@ int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	vector<double> g;
+	vector<double> gears;
 	int input;
 	while(cin >> input){
-		g.push_back(input);
+		gears.push_back(input);
 	}
 
-	double r=g[g.size()-1]/g[0];
-	ll ans=2025/r;
-
+	ll ans=ceil(10000000000000 * gears[gears.size()-1] / gears[0]);
 	cout << ans << '\n';
 	return 0;
 }
