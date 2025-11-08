@@ -1,20 +1,12 @@
 #include <iostream>
-#include <sstream>
 #include <string>
 
 #define ll long long
 
 using namespace std;
 
-void split(string &input, int (&arr)[2]) {
-	string s = input.substr(input.find('[') + 1, input.find(']') - 1);
-	istringstream stream(s);
-
-	string t;
-	int i=0;
-	while (getline(stream, t, ',')) {
-		arr[i++] = stoi(t);
-	}
+void split(string &input, int &x, int &y) {
+	sscanf(input.c_str() + input.find('[')+1, "%d,%d", &x, &y);
 }
 
 int main() {
@@ -23,14 +15,14 @@ int main() {
 
 	string input;
 	cin >> input;
+
 	int a[2];
-	int o[2];
+	split(input, a[0], a[1]);
 
-	split(input, a);
-
-	int size = 1001;
+	constexpr int size = 1001;
 	int cnt = size*size;
 
+	#pragma omp parallel for reduction(-:cnt) collapse(2)
 	for(int i=0; i<size; i++) {
 		for(int j=0; j<size;j++) {
 			int p[2] = {a[0]+j, a[1]+i};
