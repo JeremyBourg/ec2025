@@ -41,7 +41,7 @@ int main() {
 			while(t--) {
 				// multiply by itself
 				ll k1 = k[0] * k[0] - k[1] * k[1];
-				ll k2 = k[0] * k[1] + k[1] * k[0];
+				ll k2 = 2 * k[0] * k[1];
 
 				// divide by [100000, 100000]
 				k1/=100000;
